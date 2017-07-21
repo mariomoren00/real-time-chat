@@ -11,10 +11,16 @@ app.get('/', function (req, res) {
 io.on('connection', function (socket) {
   console.log('Un cliente se ha conectado');
 
-  socket.emit('news', [{ hello: 'hello world' }]);
+  //socket.emit('news', [{ hello: 'hello world' }]);
 
   socket.on('my other event', function (data) {
     console.log(data);
+    if (data == 'hello') {
+      console.log('Yes');
+      socket.emit('news', 'hello world');
+    }else{
+      console.log('Not');
+    }
   });
 
 });
