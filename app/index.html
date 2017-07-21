@@ -95,7 +95,9 @@
 
 				socket.on('news', function (data) {
 					console.log(data);
-					sendMessageLeft(data);
+					setTimeout(function () {
+	            return sendMessageLeft(data);
+	        }, 1000)
 				});
 
     });
